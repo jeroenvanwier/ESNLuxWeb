@@ -1,0 +1,83 @@
+:root {
+    --esn-orange: #f47b20;
+    --esn-dark-blue: #2e3192;
+    --esn-cyan: #00aeef;
+    --esn-magenta: #ec008c;
+    --esn-green: #7ac143;
+    font-family: 'Lato', sans-serif;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 100vw;
+    background: url(../images/header_topbg.png);
+    background-repeat: repeat-x;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+nav li {
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+nav li a {
+    text-decoration: none;
+}
+
+nav li a:hover,
+nav li a:focus-visible {
+    text-decoration: underline;
+}
+
+nav ul li:nth-child(2) a {
+    color: var(--esn-cyan)
+}
+
+nav ul li:nth-child(3) a {
+    color: var(--esn-magenta)
+}
+
+nav ul li:nth-child(4) a {
+    color: var(--esn-green)
+}
+
+nav ul li:nth-child(5) a {
+    color: var(--esn-orange)
+}
+
+nav ul li:first-child {
+    align-self: center;
+    flex-grow: 1;
+    padding: 10px 0 0 0
+}
+
+nav img {
+    height: 75px;
+    margin: 12px;
+}
+
+nav ul {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: right;
+    align-items: flex-end;
+}
+
+nav {
+    margin: 0 auto;
+    width: 100%;
+}
+
+div.inner {
+    width: 800px;
+    margin: 0 auto;
+}
