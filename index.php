@@ -1,3 +1,13 @@
+<?php
+
+if (isset($_GET['r'])) {
+    if ($_GET['r'] == "l") {
+        header('Location: https://linktr.ee/esnlux');
+        exit();
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,16 +26,47 @@
         <div class="inner">
             <nav>
                 <ul>
-                    <li><img src="images/LU_colour.png" alt="ESN Luxembourg Logo"></li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Incoming Students</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">ESNcard and Partners</a></li>
+                    <li><a href="/"><img src="images/LU_colour.png" alt="ESN Luxembourg Logo"></a></li>
+                    <?php
+                        $links = Array(
+                            "home" => "Home",
+                            "housing" => "Housing",
+                            "incoming" => "Incoming Students",
+                            "partners" => "ESNcard and Partners",
+                            "events" => "Events"
+                        );
+                        
+                        $current_page = "home";
+
+                        if (isset($_GET['p']) && isset($links[$_GET['p']])){
+                            $current_page = $_GET['p'];
+                        }
+
+                        foreach ($links as $link_p => $link_text) {
+                            echo sprintf('<li><a href="/index.php?p=%s" %s>%s</a></li>', $link_p, $current_page == $link_p ? 'class="current"' : "", $link_text);
+                        }
+                    ?>
                 </ul>
             </nav>
         </div>
     </header>
-    <div class="inner">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi amet velit repellendus! Sunt minus ipsum facere omnis aspernatur dolorum dolorem repellat cum, at assumenda corporis natus autem illo beatae sapiente ab adipisci facilis eum inventore. Beatae quas enim, qui ratione maiores velit reiciendis sapiente consequatur hic impedit atque, nisi unde aut nemo quidem, blanditiis quae. Temporibus nam cumque, placeat repudiandae, porro maxime, magnam eos rem optio reprehenderit officia nesciunt. Similique, soluta quia accusantium repellendus consequatur dolorum ab error, ea, nisi sed aperiam eveniet! Quibusdam fuga numquam, quis recusandae aperiam quidem non vitae deleniti facilis aut facere voluptatibus corporis, blanditiis dolor. Nihil nam eius atque delectus vitae esse non laborum rerum voluptatibus deleniti distinctio error ullam ab perspiciatis at reprehenderit, recusandae quia sunt repudiandae voluptatem. Quibusdam laborum esse consequatur, quisquam dicta alias magni nam, repellat voluptatibus natus pariatur? Veritatis facere in possimus iure ratione perspiciatis placeat exercitationem totam? Molestias ad dolorum dolore error assumenda impedit voluptates soluta, itaque consequatur repellat porro obcaecati quod at distinctio sint, quis vel aut deserunt illum iusto perferendis reiciendis hic! Nam, fuga officia veniam, perferendis quos perspiciatis velit delectus obcaecati corrupti, doloremque suscipit! Nobis, fuga? Deserunt nostrum ad officiis! Error officiis sapiente aperiam ratione voluptates excepturi dolores exercitationem maxime pariatur, illum tenetur! Dicta illum suscipit vero placeat aliquid sequi? Rerum, quam. Voluptatem quasi animi vero illo minima nihil voluptates, ad natus ut ipsa velit repudiandae, ipsam quibusdam iure blanditiis. Possimus nostrum, temporibus aliquam architecto et delectus ab sit commodi! Aut hic dolore iste maiores est distinctio autem, non cumque reprehenderit nam possimus sit quasi sint? Rerum magnam fuga error iusto! Excepturi repellendus alias asperiores, possimus fugit nam quae ab nihil quaerat quasi beatae, non perferendis temporibus fugiat. Pariatur voluptas alias blanditiis voluptatibus omnis sapiente non quos maiores nisi ut mollitia vitae deserunt error cum, debitis quam nobis iste suscipit temporibus magni? Obcaecati tempore dolorem nulla veritatis blanditiis labore odio praesentium, id deserunt, vitae provident, possimus nobis quod numquam? Autem ducimus vitae aut, voluptas error architecto distinctio hic! Perspiciatis blanditiis deserunt ut consectetur accusantium magni sit assumenda numquam quod tenetur. Rem voluptates id reprehenderit fugit laboriosam provident repudiandae autem omnis quaerat nihil sapiente aperiam ex vel voluptatum optio maxime eligendi totam perferendis magni, nobis sit? Corrupti consectetur non nisi quas eligendi, ducimus in commodi sapiente dolores corporis veniam, ipsa maiores distinctio asperiores dolor eaque cumque vitae unde quia similique quibusdam, molestiae nulla. Itaque, consequatur quaerat vitae a repudiandae quibusdam totam ipsam dolorem minus quisquam natus omnis quidem praesentium, eius dolore. Iure, quis illo nulla non, delectus quod eaque in voluptatem ducimus nisi expedita illum ipsum ipsa placeat. Natus quos, corporis molestias itaque ullam rem, ipsum non facilis, aliquid mollitia expedita in doloremque asperiores accusamus vitae. Obcaecati perferendis quod ipsa at similique magnam quam labore blanditiis dicta placeat debitis excepturi dolor, iure unde! Numquam nam iure harum debitis cum voluptas consequatur deleniti ducimus, tempore aspernatur cupiditate magni voluptates nobis nihil. Aperiam vero voluptate eaque repellat reprehenderit deserunt, quasi repellendus obcaecati optio aliquid laborum hic. Placeat exercitationem tempore aliquid dolore, voluptate magni voluptas tenetur repudiandae illo. Voluptatibus totam fugit beatae facere. Commodi excepturi ut nulla laudantium voluptates, porro doloremque, quibusdam adipisci nemo ullam cumque, quaerat suscipit vitae distinctio rem natus! Optio, rem magni. Doloribus, aliquam incidunt. Voluptatibus, neque minus! Cumque nihil aliquid deleniti dicta optio id nulla? Voluptates, illum? Numquam at ut debitis exercitationem. Facilis laboriosam quidem, similique optio sed repellendus ducimus provident magni laborum nam ipsum sit, cumque temporibus. Eos nobis, totam ipsam magni distinctio animi dolore? Atque repudiandae ex sed tempora nam quia iusto excepturi maxime modi explicabo? Nobis similique iure, quos blanditiis magnam fuga nemo error animi aperiam et quod placeat tempora perferendis esse asperiores nihil quibusdam vitae voluptatem, commodi quidem? Veniam dolor rerum dignissimos possimus praesentium, cupiditate nobis itaque fuga aut quaerat. Ipsam quis voluptatibus ullam omnis fugit. Quaerat nisi debitis ullam est voluptas aperiam ex omnis incidunt cumque earum, repudiandae, aspernatur, saepe laudantium possimus officia recusandae tempore. Harum, odit? Eaque odio laborum incidunt aperiam cupiditate pariatur laboriosam error suscipit ad, a sapiente at unde quidem laudantium quasi qui ipsam doloremque aliquid minima nemo, beatae nesciunt consectetur quas. Iure dolor quis non eaque. Laboriosam dolorum ipsum impedit, commodi enim veniam inventore. Ad at cum mollitia omnis aut, cumque repellendus consequuntur ipsam expedita esse modi odio tempore, quam sit. Sequi eius distinctio expedita soluta. Incidunt eos necessitatibus, atque maxime non, officiis fugiat totam nulla aspernatur porro, tempora nihil consequuntur deleniti recusandae assumenda? Assumenda ipsa nulla, suscipit reiciendis dolores earum quo voluptates rerum aspernatur sed laborum aliquam repellendus minima non autem molestias, totam aperiam dicta perferendis! Repellendus iure ipsa ad natus ducimus accusantium. Doloribus, omnis facere vel voluptatibus minus, saepe, maiores natus aut ex perspiciatis autem aspernatur cumque ut non quod alias laborum? Velit praesentium, aliquid officiis quos exercitationem, sint distinctio amet hic qui ad adipisci expedita temporibus nihil tenetur recusandae provident nesciunt iusto dicta, assumenda eligendi? Maxime inventore impedit soluta corrupti ipsum, ratione voluptatibus iure nesciunt? Nihil eveniet, ab, veritatis corrupti nobis vero dolores corporis quos voluptates praesentium, provident molestias nemo. Asperiores expedita quisquam, libero aliquid repellendus minima vitae. Doloremque, aut non quo unde omnis labore fugit inventore architecto at beatae, voluptatibus modi fuga cum eius! Autem, sequi ut? Pariatur deserunt quam omnis? Quod laborum est reprehenderit quia eaque accusantium quas deleniti aliquam aut commodi dolorum perferendis cum dolores eum placeat, recusandae, harum a provident fugiat animi tenetur itaque? Quia eum porro cum doloremque! Totam tempora doloribus expedita culpa labore repudiandae corporis ex consequuntur eaque aliquam dignissimos quia possimus ipsam minus doloremque mollitia, laborum tempore facilis porro animi earum consectetur. Architecto eligendi vitae numquam sequi eius quae quia similique cum consequatur ab illo velit doloribus harum, rerum fugiat magnam, atque aliquid voluptates, temporibus adipisci placeat ducimus ut voluptatibus possimus. Ratione praesentium natus similique repudiandae labore amet aperiam velit magnam consequuntur. Vero consequuntur delectus, repellendus illo odit ut voluptates quam hic sunt enim ducimus, saepe cum amet dicta laboriosam. Molestias cupiditate suscipit, in laborum a alias odit at ipsum ut assumenda autem nisi, laudantium ex. Expedita, numquam?</div>
-    
+    <div class="inner">
+        <?php if ($current_page == "home") { ?>
+            <h1> Erasmus Student Network Luxembourg </h1>
+            <p> Hello and welcome! We are ESN Luxembourg, the association for all international and exchange students in Luxembourg. </p>
+        <?php } elseif ($current_page == "housing") { ?>
+            <h1> Housing in Luxembourg </h1>
+        <?php } elseif ($current_page == "incoming") { ?>
+
+        <?php } elseif ($current_page == "partners") { ?>
+
+        <?php } elseif ($current_page == "events") { ?>
+
+        <?php } elseif ($current_page == "coc") { ?>
+            <h1> Terms and Conditions </h1>
+            <p>By attending an ESN Luxembourg event you agree to our 'Event Rules', 'Code of Conduct', and 'Photo Policy' as outlined below</p>
+            <h2> Event Rules </h2>
+        <?php } ?>
+    </div>
 </body>
 </html>
