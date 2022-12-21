@@ -7,6 +7,10 @@
     font-family: 'Lato', sans-serif;
 }
 
+* {
+    position: relative;
+}
+
 header::before {
     content: "";
     position: absolute;
@@ -24,42 +28,131 @@ header {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    margin: .5rem .5rem .5rem 1em;
 }
 
 h1 {
     font-size: 2rem;
 }
 
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
 nav li {
     font-family: 'Roboto', sans-serif;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
     font-size: 1.3rem;
+    position: relative;
 }
 
 nav li a {
     text-decoration: none;
+    transition: 300ms;
 }
 
-nav li a:hover,
-nav li a:focus-visible,
-nav li a.current {
-    text-decoration: underline;
+nav ul li::after {
+    content: ' ';
+    position: absolute;
+    width: calc(100% + 10px);
+    height: 100%;
+    transform: skew(-15deg) translateX(-100%) translateX(5px) translateY(-5px);
+    z-index: 1;
+    transition: 300ms;
+}
+
+nav ul li::after > * {
+    z-index: 100;
+}
+
+nav ul li:nth-child(2):hover::after,
+nav ul li:nth-child(2):focus-visible::after,
+nav ul li:nth-child(2).current::after {
+    background-color: var(--esn-cyan);
+}
+
+nav ul li:nth-child(2):hover a,
+nav ul li:nth-child(2):focus-visible a,
+nav ul li:nth-child(2).current a {
+    color: white;
+    z-index: 100;
 }
 
 nav ul li:nth-child(2) a {
     color: var(--esn-cyan)
 }
 
+nav ul li:nth-child(3):hover::after,
+nav ul li:nth-child(3):focus-visible::after,
+nav ul li:nth-child(3).current::after {
+    background-color: var(--esn-magenta);
+}
+
+nav ul li:nth-child(3):hover a,
+nav ul li:nth-child(3):focus-visible a,
+nav ul li:nth-child(3).current a {
+    color: white;
+    z-index: 100;
+}
+
 nav ul li:nth-child(3) a {
     color: var(--esn-magenta)
+}
+
+nav ul li:nth-child(4):hover::after,
+nav ul li:nth-child(4):focus-visible::after,
+nav ul li:nth-child(4).current::after {
+    background-color: var(--esn-green);
+}
+
+nav ul li:nth-child(4):hover a,
+nav ul li:nth-child(4):focus-visible a,
+nav ul li:nth-child(4).current a {
+    color: white;
+    z-index: 100;
 }
 
 nav ul li:nth-child(4) a {
     color: var(--esn-green)
 }
 
+nav ul li:nth-child(5):hover::after,
+nav ul li:nth-child(5):focus-visible::after,
+nav ul li:nth-child(5).current::after {
+    background-color: var(--esn-orange);
+}
+
+nav ul li:nth-child(5):hover a,
+nav ul li:nth-child(5):focus-visible a,
+nav ul li:nth-child(5).current a {
+    color: white;
+    z-index: 100;
+}
+
 nav ul li:nth-child(5) a {
     color: var(--esn-orange)
+}
+
+nav ul li:nth-child(6):hover::after,
+nav ul li:nth-child(6):focus-visible::after,
+nav ul li:nth-child(6).current::after {
+    background-color: var(--esn-dark-blue);
+}
+
+nav ul li:nth-child(6):hover a,
+nav ul li:nth-child(6):focus-visible a,
+nav ul li:nth-child(6).current a {
+    color: white;
+    z-index: 100;
+}
+
+nav ul li:nth-child(6) a {
+    color: var(--esn-dark-blue)
 }
 
 nav ul li:first-child {
@@ -86,7 +179,42 @@ nav {
     width: 100%;
 }
 
+em {
+    font-weight: bold;
+}
+
 div.inner {
     width: 800px;
     margin: 0 auto;
+}
+
+.rules ul {
+    list-style: circle;
+}
+
+.rules ul li {
+    margin: .5rem 1.5rem;
+}
+
+.policies ol {
+    counter-reset: item;
+}
+
+.policies li ol {
+    margin-left: 1.5rem;
+}
+
+.policies li {
+    display: block;
+    margin: .5rem 0;
+    counter-increment: item;
+}
+
+.policies li li::before {
+    content: counters(item, ".") " ";
+    font-style: italic;
+}
+
+.policies h3 {
+    display: inline-block;
 }

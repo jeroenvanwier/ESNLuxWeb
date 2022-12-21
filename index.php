@@ -1,13 +1,3 @@
-<?php
-
-if (isset($_GET['r'])) {
-    if ($_GET['r'] == "l") {
-        header('Location: https://linktr.ee/esnlux');
-        exit();
-    }
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +23,9 @@ if (isset($_GET['r'])) {
                             "housing" => "Housing",
                             "incoming" => "Incoming Students",
                             "partners" => "ESNcard and Partners",
-                            "events" => "Events"
+                            "events" => "Events",
+                            "coc" => "",
+                            "links" => ""
                         );
                         
                         $current_page = "home";
@@ -43,7 +35,9 @@ if (isset($_GET['r'])) {
                         }
 
                         foreach ($links as $link_p => $link_text) {
-                            echo sprintf('<li><a href="/index.php?p=%s" %s>%s</a></li>', $link_p, $current_page == $link_p ? 'class="current"' : "", $link_text);
+                            if ($link_text != "") {
+                                echo sprintf('<li %s><a href="%s">%s</a></li>', $current_page == $link_p ? 'class="current"' : "", $link_p, $link_text);
+                            }
                         }
                     ?>
                 </ul>
@@ -51,22 +45,9 @@ if (isset($_GET['r'])) {
         </div>
     </header>
     <div class="inner">
-        <?php if ($current_page == "home") { ?>
-            <h1> Erasmus Student Network Luxembourg </h1>
-            <p> Hello and welcome! We are ESN Luxembourg, the association for all international and exchange students in Luxembourg. </p>
-        <?php } elseif ($current_page == "housing") { ?>
-            <h1> Housing in Luxembourg </h1>
-        <?php } elseif ($current_page == "incoming") { ?>
-
-        <?php } elseif ($current_page == "partners") { ?>
-
-        <?php } elseif ($current_page == "events") { ?>
-
-        <?php } elseif ($current_page == "coc") { ?>
-            <h1> Terms and Conditions </h1>
-            <p>By attending an ESN Luxembourg event you agree to our 'Event Rules', 'Code of Conduct', and 'Photo Policy' as outlined below</p>
-            <h2> Event Rules </h2>
-        <?php } ?>
+        <?php 
+            include("pages" . DIRECTORY_SEPARATOR . $current_page . ".php");
+        ?>
     </div>
 </body>
 </html>
