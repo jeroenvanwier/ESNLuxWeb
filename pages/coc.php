@@ -10,12 +10,12 @@
 
 <p>These three rules do not form an exhaustive list, below we have outline all the policies you agree to when coming to our events.</p>
 
-<h2>Policies</h2>
+<h2 class="abg-orange">Policies</h2>
 <p>By attending an event organised by ESN Luxembourg, all attendees agree to the policies laid out below.</p>
 <div class="policies">
     <ol>
         <li>
-            <h3>Event Rules</h3>
+            <h3 class="abg-magenta">Event Rules</h3>
             <ol>
                 <li>
                     ESN Luxembourg strives to create a fun, inclusive, and safe environment during our events. To achieve this, during events organised by ESN Luxembourg, the following <em>general policies</em> apply:
@@ -40,10 +40,10 @@
             </ol>
         </li>
         <li>
-            <h3>Code of Conduct</h3>
+            <h3 class="abg-magenta">Code of Conduct</h3>
         </li>
         <li>
-            <h3>Photo Policy</h3>
+            <h3 class="abg-magenta">Photo Policy</h3>
             <ol>
                 <li>Attendees may have their likeness captured on video, photograph, or any other way, henceforth referred to as "media".
                 <li>Any such media may be used by ESN Luxembourg in promotional fashion on websites operated by ESN Luxembourg, as well as social media, including but not limited to Facebook, Instagram, and LinkedIn</li>

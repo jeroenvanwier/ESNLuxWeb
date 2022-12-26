@@ -7,6 +7,11 @@
     font-family: 'Lato', sans-serif;
 }
 
+body {
+    background-color: var(--esn-cyan);
+    min-height: 100vh;
+}
+
 * {
     position: relative;
 }
@@ -15,20 +20,46 @@ header::before {
     content: "";
     position: absolute;
     height: 10px;
-    width: 100vw;
+    width: 100%;
     background: url(../images/header_topbg.png);
     background-repeat: repeat-x;
+    z-index: 1000;
 }
 
 header {
     top: 0;
     background-color: white;
+    box-shadow: 0 0 10px black;
+    z-index: 2;
+}
+
+div.socials {
+    position: absolute;
+    height: calc(100% - 10px);
+    padding: auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.5rem;
+    left: -2rem;
+    top: 10px;
+    gap: .2rem;
+}
+
+div.socials a {
+    color: black;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    margin: .5rem .5rem .5rem 1em;
+    margin: .5rem .5rem .5rem .5rem;
+    color: white;
+    position: relative;
+    text-shadow: 0 0 .1em black;
+    width: fit-content;
+    z-index: 100;
 }
 
 h1 {
@@ -41,6 +72,33 @@ h2 {
 
 h3 {
     font-size: 1.2rem;
+}
+
+h1::after, h2::after, h3::after {
+    content: " ";
+    width: calc(100% + 6px);
+    height: .75em;
+    position: absolute;
+    background-color: var(--esn-dark-blue);
+    bottom: 0;
+    left: -3px;
+    z-index: -1;
+}
+
+.abg-green::after {
+    background-color: var(--esn-green);
+}
+
+.abg-cyan::after {
+    background-color: var(--esn-cyan);
+}
+
+.abg-orange::after {
+    background-color: var(--esn-orange);
+}
+
+.abg-magenta::after {
+    background-color: var(--esn-magenta);
 }
 
 nav li {
@@ -66,93 +124,69 @@ nav ul li::after {
     transition: 300ms;
 }
 
+nav ul li:first-child::after {
+    content: none;
+}
+
 nav ul li::after > * {
     z-index: 100;
 }
 
-nav ul li:nth-child(2):hover::after,
-nav ul li:nth-child(2):focus-visible::after,
-nav ul li:nth-child(2).current::after {
-    background-color: var(--esn-cyan);
-}
-
-nav ul li:nth-child(2):hover a,
-nav ul li:nth-child(2):focus-visible a,
-nav ul li:nth-child(2).current a {
-    color: white;
-    z-index: 100;
-}
-
-nav ul li:nth-child(2) a {
+nav ul li.cyan a {
     color: var(--esn-cyan)
 }
 
-nav ul li:nth-child(3):hover::after,
-nav ul li:nth-child(3):focus-visible::after,
-nav ul li:nth-child(3).current::after {
-    background-color: var(--esn-magenta);
-}
-
-nav ul li:nth-child(3):hover a,
-nav ul li:nth-child(3):focus-visible a,
-nav ul li:nth-child(3).current a {
-    color: white;
-    z-index: 100;
-}
-
-nav ul li:nth-child(3) a {
+nav ul li.magenta a {
     color: var(--esn-magenta)
 }
 
-nav ul li:nth-child(4):hover::after,
-nav ul li:nth-child(4):focus-visible::after,
-nav ul li:nth-child(4).current::after {
-    background-color: var(--esn-green);
-}
-
-nav ul li:nth-child(4):hover a,
-nav ul li:nth-child(4):focus-visible a,
-nav ul li:nth-child(4).current a {
-    color: white;
-    z-index: 100;
-}
-
-nav ul li:nth-child(4) a {
+nav ul li.green a {
     color: var(--esn-green)
 }
 
-nav ul li:nth-child(5):hover::after,
-nav ul li:nth-child(5):focus-visible::after,
-nav ul li:nth-child(5).current::after {
-    background-color: var(--esn-orange);
-}
-
-nav ul li:nth-child(5):hover a,
-nav ul li:nth-child(5):focus-visible a,
-nav ul li:nth-child(5).current a {
-    color: white;
-    z-index: 100;
-}
-
-nav ul li:nth-child(5) a {
+nav ul li.orange a {
     color: var(--esn-orange)
 }
 
-nav ul li:nth-child(6):hover::after,
-nav ul li:nth-child(6):focus-visible::after,
-nav ul li:nth-child(6).current::after {
-    background-color: var(--esn-dark-blue);
+nav ul li.dark-blue a {
+    color: var(--esn-dark-blue)
 }
 
-nav ul li:nth-child(6):hover a,
-nav ul li:nth-child(6):focus-visible a,
-nav ul li:nth-child(6).current a {
+nav ul li:hover a,
+nav ul li:focus-visible a,
+nav ul li.current a {
     color: white;
     z-index: 100;
 }
 
-nav ul li:nth-child(6) a {
-    color: var(--esn-dark-blue)
+nav ul li.cyan:hover::after,
+nav ul li.cyan:focus-visible::after,
+nav ul li.cyan.current::after {
+    background-color: var(--esn-cyan);
+}
+
+nav ul li.magenta:hover::after,
+nav ul li.magenta:focus-visible::after,
+nav ul li.magenta.current::after {
+    background-color: var(--esn-magenta);
+}
+
+nav ul li.green:hover::after,
+nav ul li.green:focus-visible::after,
+nav ul li.green.current::after {
+    background-color: var(--esn-green);
+}
+
+nav ul li.orange:hover::after,
+nav ul li.orange:focus-visible::after,
+nav ul li.orange.current::after {
+    background-color: var(--esn-orange);
+}
+
+nav ul li.dark-blue:hover::after,
+nav ul li.dark-blue:focus-visible::after,
+nav ul li.dark-blue.current::after {
+    background-color: var(--esn-dark-blue);
 }
 
 nav ul li:first-child {
@@ -162,8 +196,8 @@ nav ul li:first-child {
 }
 
 nav img {
-    height: 75px;
-    margin: 12px;
+    height: 90px;
+    margin: 0;
 }
 
 nav ul {
@@ -176,7 +210,9 @@ nav ul {
 
 nav {
     margin: 0 auto;
-    width: 100%;
+    width: 800px;
+    padding: 1rem;
+    position: relative;
 }
 
 em {
@@ -186,6 +222,11 @@ em {
 div.inner {
     width: 800px;
     margin: 0 auto;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 75%);
+    min-height: 100%;
+    box-shadow: 0 0 10px black;
+    clip-path: inset(0px -10px -10px -10px);
 }
 
 .rules ul {
@@ -217,4 +258,36 @@ div.inner {
 
 .policies h3 {
     display: inline-block;
+}
+
+a.external {
+    color: var(--esn-dark-blue);
+    position: relative;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    display: inline-block;
+}
+
+a.external::after {
+    content: " ";
+    position: absolute;
+    box-sizing: border-box;
+    right: calc(-1em -2px);
+    bottom: -2px;
+    height: 1em;
+    aspect-ratio: 1;
+    border: 3px solid var(--esn-dark-blue);
+    border-left: 0;
+    border-bottom: 0;
+}
+
+a.external::before {
+    content: " ";
+    position: absolute;
+    height: 3.5px;
+    width: 1.25em;
+    left: calc(100% - .19em);
+    bottom: 0.26em;
+    transform: rotate(-41deg);
+    background-color: var(--esn-dark-blue);
 }
